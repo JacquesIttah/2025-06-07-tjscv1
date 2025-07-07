@@ -6,10 +6,24 @@ function App() {
       DEMAT BREIZH
       <br />
       <Button
-        style={{textDecoration:'underline',boderColor:'blue'}}
+        style={{ textDecoration: "underline", boderColor: "blue" }}
         className="primary"
-      ></Button>
-      <Button bgColor="aquamarine"></Button>
+      >
+        Coucou
+      </Button>
+      <Button bgColor="aquamarine">
+        <div>
+          He<u>ll</u>o
+        </div>
+      </Button>
+      <Button bgColor="aquamarine">
+        <div>
+          He<u>ll</u>o
+        </div>
+        <div>
+          He<u>ll</u>o
+        </div>
+      </Button>
     </div>
   );
 }

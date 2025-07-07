@@ -1,12 +1,12 @@
 import styles from "./Button.module.css";
 
-const Button = ({style,bgColor='grey'}) => {
+const Button = ({ style, bgColor = "grey", children }) => {
   return (
     <button
-      style={{...style ,backgroundColor:bgColor}}
+      style={{ ...style, backgroundColor: bgColor }}
       className={styles.Button + " primary-color"}
     >
-      Benjamin
+      {children}
     </button>
   );
 };
