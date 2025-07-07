@@ -1,10 +1,10 @@
 import styles from "./Button.module.css";
 
-const Button = (props) => {
-  console.log(styles,props);
+const Button = ({style,bgColor='grey'}) => {
+  console.log(styles);
   return (
     <button
-      style={{...props.style ,backgroundColor:props.bgColor}}
+      style={{...style ,backgroundColor:bgColor}}
       className={styles.Button + " primary-color"}
     >
       Benjamin

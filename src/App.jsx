@@ -6,7 +6,6 @@ function App() {
       DEMAT BREIZH
       <br />
       <Button
-        bgColor="grey"
         style={{textDecoration:'underline',boderColor:'blue'}}
         className="primary"
       ></Button>
