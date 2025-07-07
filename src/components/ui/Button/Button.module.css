@@ -11,3 +11,7 @@
     background-color: skyblue;
     color: white;
 }
+.primary{
+    border-width: 2;
+    border-color: blue;
+}
