@@ -1,4 +1,6 @@
+import "./Button.css";
+
 const Button = (props) => {
-  return <div className="Button">Benjamin</div>;
+  return <button className="Button">Benjamin</button>;
 };
 export default Button;
