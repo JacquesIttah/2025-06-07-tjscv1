@@ -1,12 +1,12 @@
-import './App.css'
-import Button from './components/ui/Button/Button'
+import "./App.css";
+import Button from "./components/ui/Button/Button";
 function App() {
-   return (
+  return (
     <div>
       DEMAT BREIZH
       <Button></Button>
     </div>
-   )
+  );
 }
 
-export default App
+export default App;
