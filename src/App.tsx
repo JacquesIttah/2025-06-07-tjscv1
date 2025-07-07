@@ -11,7 +11,7 @@ function App() {
       >
         Coucou
       </Button>
-      <Button bgColor="aquamarine">
+      <Button bgColor="skyblue">
         <div>
           He<u>ll</u>o
         </div>
