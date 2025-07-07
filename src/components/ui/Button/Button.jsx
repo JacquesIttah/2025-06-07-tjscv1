@@ -1,6 +1,7 @@
-import "./Button.css";
+import styles from "./Button.module.css";
 
 const Button = (props) => {
-  return <button className="Button">Benjamin</button>;
+  console.log(styles);
+  return <button className={styles.Button+' primary-color'}>Benjamin</button>;
 };
 export default Button;
