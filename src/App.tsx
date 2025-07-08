@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Button from "./components/ui/Button/Button.jsx";
+import MemeForm from "./components/MemeForm/MemeForm.js";
 function App() {
   const [counter, setCounter] = useState(0);
   useEffect(() => {
@@ -9,12 +10,13 @@ function App() {
   }, [counter])
   return (
     <div style={{textAlign:'center'}}>
+      <MemeForm/>
       <div>Valeur de counter : {counter}</div>
       <hr />
       <Button bgColor="skyblue" type="button" onButtonClick={(arg)=>{
         setCounter(counter-1);
         //non synchrone avec le changement de valeur
-        console.log(counter);
+        console.log(counter,arg);
       }} >
         -1
       </Button>

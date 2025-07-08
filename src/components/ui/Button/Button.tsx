@@ -11,7 +11,7 @@ interface IButtonProps {
   bgColor?: "skyblue" | "tomato" | "aquamarine";
   children: string | React.ReactElement | Array<React.ReactElement | string>;
   type?: "button" | "submit" | "reset";
-  onButtonClick?: Function;
+  onButtonClick?(arg:number):undefined;
 }
 /**
  * Composant de button
