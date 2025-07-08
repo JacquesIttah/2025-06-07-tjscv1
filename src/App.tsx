@@ -6,10 +6,11 @@ import Navbar from "./components/ui/Navbar/Navbar";
 import FlexHorizontFirstGrow from "./components/layout/FlexHorizontFirstGrow/FlexHorizontFirstGrow";
 import MemeForm from "./components/MemeForm/MemeForm";
 import Footer from "./components/ui/Footer/Footer";
-import { emptyMeme, MemeSVGViewer } from "orsys-tjs-meme";
+import { emptyMeme, MemeSVGViewer, type ImageInterface } from "orsys-tjs-meme";
 
 const App = () => {
   const [meme,setMeme]=useState(emptyMeme)
+  const [images, setImages] = useState<Array<ImageInterface>>([])
   return (
     <>
       <div>{JSON.stringify(meme)}</div>
@@ -19,7 +20,7 @@ const App = () => {
           <Navbar></Navbar>
           <FlexHorizontFirstGrow>
             <MemeSVGViewer image={undefined} meme={meme} />
-            <MemeForm meme={meme} onMemeChange={(m)=>{setMeme(m);}} />
+            <MemeForm meme={meme}  images={images} onMemeChange={(m)=>{setMeme(m);}} />
           </FlexHorizontFirstGrow>
           <Footer />
         </FlexVerticalThirdGrow>

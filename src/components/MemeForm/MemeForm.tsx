@@ -1,14 +1,15 @@
 import type React from "react";
 import styles from "./MemeForm.module.css";
-import type { MemeInterface } from "orsys-tjs-meme";
+import type { ImageInterface, MemeInterface } from "orsys-tjs-meme";
 import Button from "../ui/Button/Button";
 import { useEffect, useState } from "react";
 import { preconnect } from "react-dom";
 interface IMemeFormProps {
   meme: MemeInterface;
+  images: Array<ImageInterface>;
   onMemeChange(m: MemeInterface): undefined;
 }
-const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange }) => {
+const MemeForm: React.FC<IMemeFormProps> = ({ meme,images, onMemeChange }) => {
   function onStringInputChange(evt: React.FormEvent<HTMLInputElement>) {
     const tmp = { ...meme };
     //@ts-ignore
@@ -56,6 +57,7 @@ const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange }) => {
         <br />
         <select name="image" id="image">
           <option value="-1">No image</option>
+          {images.map((i,p)=><option key={'simg'+p} value={i.id}>{i.name}</option>)}
         </select>
         <hr />
         <label htmlFor="text">
@@ -149,7 +151,9 @@ const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange }) => {
           id="italic"
           type="checkbox"
           checked={meme.italic}
-          onChange={(evt) => {onMemeChange({...meme,italic:evt.target.checked})}}
+          onChange={(evt) => {
+            onMemeChange({ ...meme, italic: evt.target.checked });
+          }}
         />
         <hr />
         <br />
