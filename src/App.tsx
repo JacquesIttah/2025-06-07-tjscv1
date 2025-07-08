@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import FlexVerticalThirdGrow from "./components/layout/FlexVerticalThirdGrow/FlexVerticalThirdGrow";
 import Header from "./components/ui/Header/Header";
@@ -9,8 +9,13 @@ import Footer from "./components/ui/Footer/Footer";
 import { emptyMeme, MemeSVGViewer, type ImageInterface } from "orsys-tjs-meme";
 
 const App = () => {
-  const [meme,setMeme]=useState(emptyMeme)
-  const [images, setImages] = useState<Array<ImageInterface>>([])
+  const [meme, setMeme] = useState(emptyMeme);
+  const [images, setImages] = useState<Array<ImageInterface>>([]);
+  useEffect(() => {
+    fetch(`http://localhost:5679/images`)
+      .then((r) => r.json())
+      .then((a) => setImages(a));
+  }, []);
   return (
     <>
       <div>{JSON.stringify(meme)}</div>
@@ -19,8 +24,20 @@ const App = () => {
           <Header></Header>
           <Navbar></Navbar>
           <FlexHorizontFirstGrow>
-            <MemeSVGViewer image={images.find(i=>i.id===meme.imageId)} meme={meme} />
-            <MemeForm meme={meme}  images={images} onMemeChange={(m)=>{setMeme(m);}} />
+            <MemeSVGViewer
+              image={images.find((i) =>{
+                return  i.id === meme.imageId
+              })}
+              meme={meme}
+              basePath=""
+            />
+            <MemeForm
+              meme={meme}
+              images={images}
+              onMemeChange={(m) => {
+                setMeme(m);
+              }}
+            />
           </FlexHorizontFirstGrow>
           <Footer />
         </FlexVerticalThirdGrow>
