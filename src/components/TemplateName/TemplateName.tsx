@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import styles from "./TemplateName.module.css";
 
-interface ITemplateNameProps {}
-interface ITemplateNameState {}
-const templateNameInitialState = "";
-const TemplateName: React.FC<ITemplateNameProps> = (props) => {
+interface ITemplateNameProps {
+  data:string
+}
+interface ITemplateNameState {
+  value:number
+}
+const templateNameInitialState = {value:0};
+const TemplateName: React.FC<ITemplateNameProps> = ({data=""}) => {
   const [state, setstate] = useState<ITemplateNameState>(
     templateNameInitialState
   );
@@ -15,7 +19,7 @@ const TemplateName: React.FC<ITemplateNameProps> = (props) => {
   }, []);
   return (
     <div className={styles.TemplateName} data-testid="TemplateName">
-      TemplateName Component
+      TemplateName Component props.data:{data}
     </div>
   );
 };
