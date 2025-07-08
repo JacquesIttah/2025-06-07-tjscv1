@@ -4,25 +4,17 @@ function App() {
   return (
     <div>
       DEMAT BREIZH
+      <canvas/>
       <br />
-      <Button
-        style={{ textDecoration: "underline", boderColor: "blue" }}
-        className="primary"
-      >
-        Coucou
+      <Button bgColor="skyblue" type="button" onButtonClick={(arg)=>{
+        console.log('-1 clicked')
+      }} >
+        -1
       </Button>
-      <Button bgColor="skyblue">
-        <div>
-          He<u>ll</u>o
-        </div>
-      </Button>
-      <Button bgColor="aquamarine">
-        <div>
-          He<u>ll</u>o
-        </div>
-        <div>
-          He<u>ll</u>o
-        </div>
+      <Button bgColor="aquamarine" type="reset" onButtonClick={(arg)=>{
+          console.log('+1 clicked')
+      }}>
+        +1
       </Button>
     </div>
   );

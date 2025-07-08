@@ -1,18 +1,34 @@
 import type React from "react";
 import styles from "./Button.module.css";
- 
+
 //number, object, Array<string|React.ReactElement> string[], undefined, null, string, React.ReactElement
-//Button
-interface IButtonProps{
-    style?:{textDecoration:string};
-    bgColor?:'skyblue'|'tomato';
-    children:string|React.ReactElement|Array<React.ReactElement|string>
+//Button, Function
+/**
+ * interface de props de Button
+ */
+interface IButtonProps {
+  style?: { textDecoration: string };
+  bgColor?: "skyblue" | "tomato" | "aquamarine";
+  children: string | React.ReactElement | Array<React.ReactElement | string>;
+  type?: "button" | "submit" | "reset";
+  onButtonClick?: Function;
 }
-const Button = ({ style, bgColor = "tomato", children}:IButtonProps) => {
+/**
+ * Composant de button
+ * @param props {IButtonProps} props de Button
+ * @returns {React.reactElement} component Button
+ */
+const Button = ({
+  style,bgColor = "tomato",children,type = "button",onButtonClick}: IButtonProps) => {
   return (
     <button
       style={{ ...style, backgroundColor: bgColor }}
       className={styles.Button + " primary-color"}
+      type={type}
+      onClick={(evt) => {
+        // console.log(evt, children);
+        if(undefined!==onButtonClick){onButtonClick();}
+      }}
     >
       {children}
     </button>
