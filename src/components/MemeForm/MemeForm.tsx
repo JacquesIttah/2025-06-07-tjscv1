@@ -9,31 +9,28 @@ interface IMemeFormProps {
   onMemeChange(m: MemeInterface): undefined;
 }
 const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange }) => {
-  const [internalMeme, setInternalMeme] = useState(meme);
-  useEffect(() => {
-    onMemeChange(internalMeme)
-  }, [internalMeme])
   function onStringInputChange(evt: React.FormEvent<HTMLInputElement>) {
-    const tmp = { ...internalMeme };
+    const tmp = { ...meme };
     //@ts-ignore
     tmp[evt.target.name] = evt.target.value;
     // setInternalMeme({...internalMeme,evt.target.name:evt.target.value});
-    setInternalMeme(tmp);
+    onMemeChange(tmp);
   }
   function onNumberInputChange(evt: React.FormEvent<HTMLInputElement>) {
-    const tmp = { ...internalMeme };
+    const tmp = { ...meme };
     //@ts-ignore
     tmp[evt.target.name] = Number(evt.target.value);
     // setInternalMeme({...internalMeme,evt.target.name:evt.target.value});
-    setInternalMeme(tmp);
+    onMemeChange(tmp);
   }
   return (
     <div className={styles.MemeForm} data-testid="MemeForm">
-      <form onSubmit={(evt)=>{
-        evt.preventDefault();
-        //onMemeChange(internalMeme);
-
-      }}>
+      <form
+        onSubmit={(evt) => {
+          evt.preventDefault();
+          //onMemeChange(internalMeme);
+        }}
+      >
         <label htmlFor="titre">
           <h1>Titre</h1>
         </label>
@@ -41,7 +38,7 @@ const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange }) => {
         <input
           name="titre"
           id="titre"
-          value={internalMeme.titre}
+          value={meme.titre}
           onInput={(evt) => {
             //@ts-ignore
             let value: string = evt.target.value;
@@ -65,23 +62,48 @@ const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange }) => {
           <h2>texte</h2>
         </label>
         <br />
-        <input name="text" id="text" type="text" value={meme.text} onInput={onStringInputChange} />
+        <input
+          name="text"
+          id="text"
+          type="text"
+          value={meme.text}
+          onInput={onStringInputChange}
+        />
         <br />
         <label htmlFor="x">
           <h2 style={{ display: "inline" }}>x :</h2>
         </label>
-        <input className={styles.smallNumber} name="x" id="x" type="number" value={internalMeme.x} onInput={onNumberInputChange} />
+        <input
+          className={styles.smallNumber}
+          name="x"
+          id="x"
+          type="number"
+          value={meme.x}
+          onInput={onNumberInputChange}
+        />
         <label htmlFor="y">
           <h2 style={{ display: "inline" }}>y :</h2>
         </label>
-        <input className={styles.smallNumber} name="y" id="y" type="number" value={internalMeme.y} onInput={onNumberInputChange} />
+        <input
+          className={styles.smallNumber}
+          name="y"
+          id="y"
+          type="number"
+          value={meme.y}
+          onInput={onNumberInputChange}
+        />
         <hr />
         <br />
         <h2>Decorations</h2>
         <label htmlFor="color">
           <h2 style={{ display: "inline" }}>color :</h2>
         </label>
-        <input name="color" id="color" type="color" onInput={onStringInputChange}  />
+        <input
+          name="color"
+          id="color"
+          type="color"
+          onInput={onStringInputChange}
+        />
         <br />
         <label htmlFor="fontSize">
           <h2 style={{ display: "inline" }}>font-size :</h2>
@@ -92,7 +114,7 @@ const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange }) => {
           id="fontSize"
           type="number"
           min="0"
-          value={internalMeme.fontSize}
+          value={meme.fontSize}
           onInput={onNumberInputChange}
         />
         px
@@ -108,8 +130,8 @@ const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange }) => {
           min="100"
           step="100"
           max="900"
-          value={internalMeme.fontWeight}
-          onInput={onStringInputChange} 
+          value={meme.fontWeight}
+          onInput={onStringInputChange}
         />
         <br />
         <input name="underline" id="underline" type="checkbox" />
@@ -122,7 +144,13 @@ const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange }) => {
           <h2 style={{ display: "inline" }}>italic</h2>
         </label>
         &nbsp;
-        <input name="italic" id="italic" type="checkbox" />
+        <input
+          name="italic"
+          id="italic"
+          type="checkbox"
+          checked={meme.italic}
+          onChange={(evt) => {onMemeChange({...meme,italic:evt.target.checked})}}
+        />
         <hr />
         <br />
         <Button type="reset">Reset</Button>
