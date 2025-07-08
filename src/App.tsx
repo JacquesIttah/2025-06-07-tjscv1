@@ -6,6 +6,7 @@ import Navbar from "./components/ui/Navbar/Navbar";
 import FlexHorizontFirstGrow from "./components/layout/FlexHorizontFirstGrow/FlexHorizontFirstGrow";
 import MemeSvgVierwer from "./components/ui/MemeSVGVierwer/MemeSvgVierwer";
 import MemeForm from "./components/MemeForm/MemeForm";
+import Footer from "./components/ui/Footer/Footer";
 
 const App = () => {
   return (
@@ -15,8 +16,9 @@ const App = () => {
         <Navbar></Navbar>
         <FlexHorizontFirstGrow>
           <MemeSvgVierwer />
-          <MemeForm />
+          <MemeForm data="dk" />
         </FlexHorizontFirstGrow>
+        <Footer/>
       </FlexVerticalThirdGrow>
     </div>
   );
