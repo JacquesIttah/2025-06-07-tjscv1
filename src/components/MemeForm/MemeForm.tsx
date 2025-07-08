@@ -55,7 +55,9 @@ const MemeForm: React.FC<IMemeFormProps> = ({ meme,images, onMemeChange }) => {
           <h2>Image</h2>
         </label>
         <br />
-        <select name="image" id="image">
+        <select name="image" id="image" onChange={(evt)=>{
+          onMemeChange({...meme,imageId:Number(evt.target.value)})
+        }}>
           <option value="-1">No image</option>
           {images.map((i,p)=><option key={'simg'+p} value={i.id}>{i.name}</option>)}
         </select>
