@@ -18,3 +18,4 @@ class App extends React.PureComponent<{parentValue:string},{counter:number}>{
     }
   }
   export default App;
+  
