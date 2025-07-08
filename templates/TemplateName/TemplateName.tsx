@@ -19,7 +19,7 @@ const TemplateName: React.FC<ITemplateNameProps> = ({data=""}) => {
   }, []);
   return (
     <div className={styles.TemplateName} data-testid="TemplateName">
-      TemplateName Component props.data:{data}
+      TemplateName Component props.data:{data}, state:{JSON.stringify(state)}
     </div>
   );
 };
