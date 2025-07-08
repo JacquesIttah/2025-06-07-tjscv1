@@ -14,12 +14,20 @@ const current = createSlice({
     update: (state, action: { type: string; payload: MemeInterface }) => {
       state.meme = action.payload;
     },
-    clear: (state, action: { type: string }) => {
+    clear: (state) => {
       state.meme = emptyMeme;
     },
   },
+  extraReducers(builder) {
+    builder.addCase(
+      saveMeme.fulfilled,
+      (state, action: { type: string; payload: MemeInterface }) => {
+        state.meme = action.payload;
+      }
+    );
+  },
 });
 
-export const {clear,update} = current.actions;
+export const { clear, update } = current.actions;
 
 export default current.reducer;

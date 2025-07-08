@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { type MemeInterface, type ImageInterface } from "orsys-tjs-meme";
-import { loadDatas } from "./asyncActions";
+import { loadDatas, saveMeme } from "./asyncActions";
 interface IRessourcesState {
   memes: Array<MemeInterface>;
   images: Array<ImageInterface>;
@@ -30,6 +30,19 @@ const ressources = createSlice({
       ) => {
         state.memes = action.payload.memes;
         state.images = action.payload.images;
+      }
+    );
+    builder.addCase(
+      saveMeme.fulfilled,
+      (state, action: { type: string; payload: MemeInterface }) => {
+        const position = state.memes.findIndex(
+          (m) => m.id === action.payload.id
+        );
+        if (position >= 0) {
+          state.memes[position] = action.payload;
+        } else {
+          state.memes.push(action.payload);
+        }
       }
     );
   },
