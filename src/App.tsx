@@ -3,9 +3,11 @@ import FlexVerticalThirdGrow from "./components/layout/FlexVerticalThirdGrow/Fle
 import Header from "./components/ui/Header/Header";
 import Navbar from "./components/ui/Navbar/Navbar";
 import FlexHorizontFirstGrow from "./components/layout/FlexHorizontFirstGrow/FlexHorizontFirstGrow";
-import MemeForm from "./components/MemeForm/MemeForm.connected";
 import Footer from "./components/ui/Footer/Footer";
-import MemeSvgVierwer from "./components/ui/MemeSVGVierwer/MemeSVGVierwer.connected";
+import { Route, Routes } from "react-router-dom";
+import Editor from "./pages/Editor";
+import Thumbnail from "./pages/Thumbnail";
+import Home from './pages/Home'
 
 const App = () => {
   return (
@@ -14,8 +16,12 @@ const App = () => {
         <Header></Header>
         <Navbar></Navbar>
         <FlexHorizontFirstGrow>
-          <MemeSvgVierwer basePath="" />
-          <MemeForm />
+          <Routes>
+            <Route path="/Editor" Component={Editor}></Route>
+            <Route path="/Editor/:id" Component={Editor}></Route>
+            <Route path="/Thumbnail" Component={Thumbnail}></Route>
+            <Route path="/" Component={Home}></Route>
+          </Routes>
         </FlexHorizontFirstGrow>
         <Footer />
       </FlexVerticalThirdGrow>
