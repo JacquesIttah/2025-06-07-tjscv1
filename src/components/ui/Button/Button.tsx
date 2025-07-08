@@ -37,7 +37,7 @@ const Button = ({
     <button
       style={{ ...style, backgroundColor: bgColor }}
       className={
-        styles.Button + " primary-color" + (clicked ? " " + styles.clicked : "")
+        styles.Button + (clicked ? " " + styles.clicked : "")
       }
       type={type}
       onClick={(evt) => {
