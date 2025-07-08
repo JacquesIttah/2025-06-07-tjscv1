@@ -7,9 +7,11 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "rest": "json-server -p 5679 db/db.json"
   },
   "dependencies": {
+    "json-server": "0.17.4",
     "orsys-tjs-meme": "^1.0.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
