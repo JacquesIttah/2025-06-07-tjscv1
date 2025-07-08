@@ -10,7 +10,39 @@
       "withStyle": true,
       "withTest": true,
       "withStory": true,
-      "withLazy": true
+      "withLazy": true,
+      "customTemplates":{
+        "component":"templates/TemplateName/TemplateName.tsx",
+        "style":"templates/TemplateName/TemplateName.module.css",
+        "story":"templates/TemplateName/TemplateName.stories.tsx",
+        "lazy":"templates/TemplateName/TemplateName.lazy.tsx"
+      }
+    },
+    "layout": {
+      "path": "src/components/layout",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": true,
+      "customTemplates":{
+        "component":"templates/TemplateName/TemplateName.tsx",
+        "style":"templates/TemplateName/TemplateName.module.css",
+        "story":"templates/TemplateName/TemplateName.stories.tsx",
+        "lazy":"templates/TemplateName/TemplateName.lazy.tsx"
+      }
+    },
+    "ui": {
+      "path": "src/components/ui",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": true,
+      "customTemplates":{
+        "component":"templates/TemplateName/TemplateName.tsx",
+        "style":"templates/TemplateName/TemplateName.module.css",
+        "story":"templates/TemplateName/TemplateName.stories.tsx",
+        "lazy":"templates/TemplateName/TemplateName.lazy.tsx"
+      }
     }
   }
 }
