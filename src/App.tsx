@@ -12,14 +12,14 @@ const App = () => {
   const [meme,setMeme]=useState(emptyMeme)
   return (
     <>
-      <div>{JSON.stringify(emptyMeme)}</div>
+      <div>{JSON.stringify(meme)}</div>
       <div className="App">
         <FlexVerticalThirdGrow>
           <Header></Header>
           <Navbar></Navbar>
           <FlexHorizontFirstGrow>
             <MemeSVGViewer image={undefined} meme={meme} />
-            <MemeForm meme={meme} onMemeChange={(m)=>{setMeme(m)}} />
+            <MemeForm meme={meme} onMemeChange={(m)=>{setMeme(m);}} />
           </FlexHorizontFirstGrow>
           <Footer />
         </FlexVerticalThirdGrow>
