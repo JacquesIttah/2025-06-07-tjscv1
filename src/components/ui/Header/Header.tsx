@@ -1,12 +1,11 @@
 import React from "react";
 import styles from "./Header.module.css";
 
-
-const Header: React.FC<undefined> = () => {
- 
+const Header: React.FC<object> = () => {
   return (
     <div className={styles.Header} data-testid="Header">
-      Header Component
+        <span className={styles.meme}>Meme</span>.
+        <span className={styles.js}>js</span>
     </div>
   );
 };
