@@ -43,6 +43,19 @@
         "story":"templates/TemplateName/TemplateName.stories.tsx",
         "lazy":"templates/TemplateName/TemplateName.lazy.tsx"
       }
+    },
+    "func": {
+      "path": "src/components/feature",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": true,
+      "customTemplates":{
+        "component":"templates/TemplateName/TemplateName.tsx",
+        "style":"templates/TemplateName/TemplateName.module.css",
+        "story":"templates/TemplateName/TemplateName.stories.tsx",
+        "lazy":"templates/TemplateName/TemplateName.lazy.tsx"
+      }
     }
   }
 }
