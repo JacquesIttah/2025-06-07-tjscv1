@@ -4,9 +4,9 @@ import FlexVerticalThirdGrow from "./components/layout/FlexVerticalThirdGrow/Fle
 import Header from "./components/ui/Header/Header";
 import Navbar from "./components/ui/Navbar/Navbar";
 import FlexHorizontFirstGrow from "./components/layout/FlexHorizontFirstGrow/FlexHorizontFirstGrow";
-import MemeSvgVierwer from "./components/ui/MemeSVGVierwer/MemeSvgVierwer";
 import MemeForm from "./components/MemeForm/MemeForm";
 import Footer from "./components/ui/Footer/Footer";
+import { emptyMeme, MemeSVGViewer } from "orsys-tjs-meme";
 
 const App = () => {
   return (
@@ -15,7 +15,7 @@ const App = () => {
         <Header></Header>
         <Navbar></Navbar>
         <FlexHorizontFirstGrow>
-          <MemeSvgVierwer />
+          <MemeSVGViewer image={undefined} meme={emptyMeme} />
           <MemeForm data="dk" />
         </FlexHorizontFirstGrow>
         <Footer/>
