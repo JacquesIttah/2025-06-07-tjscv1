@@ -19,7 +19,7 @@ const App = () => {
           <Header></Header>
           <Navbar></Navbar>
           <FlexHorizontFirstGrow>
-            <MemeSVGViewer image={undefined} meme={meme} />
+            <MemeSVGViewer image={images.find(i=>i.id===meme.imageId)} meme={meme} />
             <MemeForm meme={meme}  images={images} onMemeChange={(m)=>{setMeme(m);}} />
           </FlexHorizontFirstGrow>
           <Footer />
