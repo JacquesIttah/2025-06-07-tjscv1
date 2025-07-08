@@ -15,3 +15,8 @@
     border-width: 2;
     border-color: blue;
 }
+
+.clicked{
+    box-shadow: 5px 5px 25px grey;
+    border:1px solid grey;
+}

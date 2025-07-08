@@ -1,4 +1,4 @@
-import type React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Button.module.css";
 
 //number, object, Array<string|React.ReactElement> string[], undefined, null, string, React.ReactElement
@@ -19,15 +19,33 @@ interface IButtonProps {
  * @returns {React.reactElement} component Button
  */
 const Button = ({
-  style,bgColor = "tomato",children,type = "button",onButtonClick}: IButtonProps) => {
+  style,
+  bgColor = "tomato",
+  children,
+  type = "button",
+  onButtonClick,
+}: IButtonProps) => {
+  const [clicked, setClicked] = useState(false);
+  useEffect(() => {
+    if (clicked) {
+      setTimeout(() => {
+        setClicked(false);
+      }, 350);
+    }
+  }, [clicked]);
   return (
     <button
       style={{ ...style, backgroundColor: bgColor }}
-      className={styles.Button + " primary-color"}
+      className={
+        styles.Button + " primary-color" + (clicked ? " " + styles.clicked : "")
+      }
       type={type}
       onClick={(evt) => {
+        setClicked(true);
         // console.log(evt, children);
-        if(undefined!==onButtonClick){onButtonClick();}
+        if (undefined !== onButtonClick) {
+          onButtonClick();
+        }
       }}
     >
       {children}
