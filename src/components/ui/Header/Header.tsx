@@ -1,25 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./Header.module.css";
 
-interface IHeaderProps {
-  data:string
-}
-interface IHeaderState {
-  value:number
-}
-const headerInitialState = {value:0};
-const Header: React.FC<IHeaderProps> = ({data=""}) => {
-  const [state, setstate] = useState<IHeaderState>(
-    headerInitialState
-  );
-  useEffect(() => {
-    return () => {
-      //demontage
-    };
-  }, []);
+
+const Header: React.FC<undefined> = () => {
+ 
   return (
     <div className={styles.Header} data-testid="Header">
-      Header Component props.data:{data}, state:{JSON.stringify(state)}
+      Header Component
     </div>
   );
 };
