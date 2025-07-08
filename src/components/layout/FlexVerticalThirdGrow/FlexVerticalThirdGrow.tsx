@@ -7,15 +7,16 @@ interface IFlexVerticalThirdGrowProps {
 }
 
 const FlexVerticalThirdGrow: React.FC<IFlexVerticalThirdGrowProps> = ({
-  data = "",
+  children,
+  style,
 }) => {
   return (
     <div
       className={styles.FlexVerticalThirdGrow}
       data-testid="FlexVerticalThirdGrow"
+      style={style}
     >
-      FlexVerticalThirdGrow Component props.data:{data}, state:
-      {JSON.stringify(state)}
+      {children}
     </div>
   );
 };
