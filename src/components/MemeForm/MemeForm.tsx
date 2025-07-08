@@ -1,9 +1,7 @@
 import type React from "react";
 import styles from "./MemeForm.module.css";
 import type { ImageInterface, MemeInterface } from "orsys-tjs-meme";
-import Button from "../ui/Button/Button";
-import { useEffect, useState } from "react";
-import { preconnect } from "react-dom";
+import Button from "../ui/Button/Button";;
 interface IMemeFormProps {
   meme: MemeInterface;
   images: Array<ImageInterface>;

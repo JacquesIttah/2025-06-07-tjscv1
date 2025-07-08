@@ -3,7 +3,6 @@ import styles from "./Navbar.module.css";
 import { Navbar as Nvb } from "react-bootstrap";
 import { Container, Nav } from "react-bootstrap";
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.css";
-import "../../../../node_modules/@popperjs/core/dist/cjs/popper.js";
 import "../../../../node_modules/bootstrap/dist/js/bootstrap.js";
 
 const Navbar: React.FC<object> = () => {
