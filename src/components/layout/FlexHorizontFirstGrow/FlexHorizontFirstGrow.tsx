@@ -2,24 +2,14 @@ import React, { useEffect, useState } from "react";
 import styles from "./FlexHorizontFirstGrow.module.css";
 
 interface IFlexHorizontFirstGrowProps {
-  data:string
-}
-interface IFlexHorizontFirstGrowState {
-  value:number
-}
-const flexHorizontFirstGrowInitialState = {value:0};
-const FlexHorizontFirstGrow: React.FC<IFlexHorizontFirstGrowProps> = ({data=""}) => {
-  const [state, setstate] = useState<IFlexHorizontFirstGrowState>(
-    flexHorizontFirstGrowInitialState
-  );
-  useEffect(() => {
-    return () => {
-      //demontage
-    };
-  }, []);
+  children: Array<React.ReactElement> | React.ReactElement;
+   style?: object;
+} 
+const FlexHorizontFirstGrow: React.FC<IFlexHorizontFirstGrowProps> = ({children,style}) => {
+  
   return (
-    <div className={styles.FlexHorizontFirstGrow} data-testid="FlexHorizontFirstGrow">
-      FlexHorizontFirstGrow Component props.data:{data}, state:{JSON.stringify(state)}
+    <div className={styles.FlexHorizontFirstGrow} data-testid="FlexHorizontFirstGrow" style={style}>
+      {children}
     </div>
   );
 };
