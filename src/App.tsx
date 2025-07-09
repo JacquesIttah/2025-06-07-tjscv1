@@ -6,21 +6,29 @@ import FlexHorizontFirstGrow from "./components/layout/FlexHorizontFirstGrow/Fle
 import MemeForm from "./components/MemeForm/MemeForm.connected";
 import Footer from "./components/ui/Footer/Footer";
 import MemeSVGViewer from "./components/ui/MemeSVGViewer/MemeSVGViewer.connected";
-
+import { Route, Routes } from "react-router";
+import Home from "./pages/Home";
+import Editor from "./pages/Editor";
+import Thumbnail from "./pages/Thumbnail";
 // import {images} from '../db/db.json'
 const App = () => {
   return (
-      <div className="App">
-        <FlexVerticalThirdGrow>
-          <Header></Header>
-          <Navbar></Navbar>
-          <FlexHorizontFirstGrow>
-            <MemeSVGViewer/>
-            <MemeForm/>
-          </FlexHorizontFirstGrow>
-          <Footer />
-        </FlexVerticalThirdGrow>
-      </div>
+    <div className="App">
+      <FlexVerticalThirdGrow>
+        <Header></Header>
+        <Navbar></Navbar>
+        <FlexHorizontFirstGrow>
+          <Routes>
+            <Route path="/" Component={Home} />
+            <Route path="/editor" Component={Editor} />
+            <Route path="/thumbnail" Component={Thumbnail} />
+          </Routes>
+          {/* <MemeSVGViewer/>
+            <MemeForm/> */}
+        </FlexHorizontFirstGrow>
+        <Footer />
+      </FlexVerticalThirdGrow>
+    </div>
   );
 };
 
