@@ -11,11 +11,11 @@ const initialState: IRessourcesState = {
 };
 
 const ressources = createSlice({
-  name: second,
+  name: 'ressources',
   initialState,
   reducers: {},
 });
 
-export const {} = ressources.actions;
+//export const {} = ressources.actions;
 
 export default ressources.reducer;
