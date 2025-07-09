@@ -21,6 +21,7 @@ const App = () => {
           <Routes>
             <Route path="/" Component={Home} />
             <Route path="/editor" Component={Editor} />
+            <Route path="/editor/:id" Component={Editor} />
             <Route path="/thumbnail" Component={Thumbnail} />
           </Routes>
         </FlexHorizontFirstGrow>
