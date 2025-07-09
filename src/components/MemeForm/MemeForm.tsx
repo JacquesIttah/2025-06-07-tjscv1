@@ -6,6 +6,7 @@ interface IMemeFormProps {
   meme: MemeInterface;
   images: Array<ImageInterface>;
   onMemeChange(m: MemeInterface): undefined;
+  onMemeSave(m: MemeInterface): undefined;
 }
 const MemeForm: React.FC<IMemeFormProps> = ({ meme, images, onMemeChange }) => {
   function onStringInputChange(evt: React.FormEvent<HTMLInputElement>) {
