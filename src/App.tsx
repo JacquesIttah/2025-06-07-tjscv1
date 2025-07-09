@@ -23,8 +23,6 @@ const App = () => {
             <Route path="/editor" Component={Editor} />
             <Route path="/thumbnail" Component={Thumbnail} />
           </Routes>
-          {/* <MemeSVGViewer/>
-            <MemeForm/> */}
         </FlexHorizontFirstGrow>
         <Footer />
       </FlexVerticalThirdGrow>

@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import MemeSVGViewer from "../components/ui/MemeSVGViewer/MemeSVGViewer.connected";
+import MemeForm from "../components/MemeForm/MemeForm.connected";
 
 function Editor() {
   return (
-    <div>Editor</div>
-  )
+    <>
+      <MemeSVGViewer />
+      <MemeForm />
+    </>
+  );
 }
 
-export default Editor
+export default Editor;
