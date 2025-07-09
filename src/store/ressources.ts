@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { ImageInterface, MemeInterface } from "orsys-tjs-meme";
 
 interface IRessourcesState {
@@ -11,11 +11,21 @@ const initialState: IRessourcesState = {
 };
 
 const ressources = createSlice({
-  name: 'ressources',
+  name: "ressources",
   initialState,
   reducers: {},
 });
 
 //export const {} = ressources.actions;
+export const REST_URL = "http://localhost:5679";
+
+export const loadAsyncRessources = createAsyncThunk(
+  "ressources/load",
+  async () => {
+    const primages = await fetch(`${REST_URL}/images`);
+    const result = await primages.json();
+    return result;
+  }
+);
 
 export default ressources.reducer;
