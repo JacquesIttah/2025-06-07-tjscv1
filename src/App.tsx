@@ -4,13 +4,13 @@ import FlexVerticalThirdGrow from "./components/layout/FlexVerticalThirdGrow/Fle
 import Header from "./components/ui/Header/Header";
 import Navbar from "./components/ui/Navbar/Navbar";
 import FlexHorizontFirstGrow from "./components/layout/FlexHorizontFirstGrow/FlexHorizontFirstGrow";
-import MemeForm from "./components/MemeForm/MemeForm";
+import MemeForm from "./components/MemeForm/MemeForm.connected";
 import Footer from "./components/ui/Footer/Footer";
-import { emptyMeme, MemeSVGViewer, type ImageInterface } from "orsys-tjs-meme";
+import { MemeSVGViewer, type ImageInterface } from "orsys-tjs-meme";
 import {store} from './store/store'
 // import {images} from '../db/db.json'
 const App = () => {
-  const [meme, setMeme] = useState(emptyMeme);
+  const [meme, setMeme] = useState({});
   const [images, setImages] = useState<Array<ImageInterface>>([]);
   console.log(store);
   useEffect(() => {
@@ -29,10 +29,6 @@ const App = () => {
             <MemeSVGViewer image={undefined} meme={meme} />
             <MemeForm
               images={images}
-              meme={meme}
-              onMemeChange={(m) => {
-                setMeme(m);
-              }}
             />
           </FlexHorizontFirstGrow>
           <Footer />
