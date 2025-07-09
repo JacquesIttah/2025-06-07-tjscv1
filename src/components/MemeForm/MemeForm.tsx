@@ -2,8 +2,7 @@ import type React from "react";
 import styles from "./MemeForm.module.css";
 import type { MemeInterface } from "orsys-tjs-meme";
 import Button from "../ui/Button/Button";
-import { useEffect, useState } from "react";
-import { preconnect } from "react-dom";
+
 interface IMemeFormProps {
   meme: MemeInterface;
   onMemeChange(m: MemeInterface): undefined;
@@ -102,6 +101,7 @@ const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange }) => {
           name="color"
           id="color"
           type="color"
+          value={meme.color}
           onInput={onStringInputChange}
         />
         <br />
@@ -134,7 +134,8 @@ const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange }) => {
           onInput={onStringInputChange}
         />
         <br />
-        <input name="underline" id="underline" type="checkbox" />
+        <input name="underline" id="underline" type="checkbox"   checked={meme.underline}
+          onChange={(evt) => {onMemeChange({...meme,underline:evt.target.checked})}}/>
         &nbsp;
         <label htmlFor="underline">
           <h2 style={{ display: "inline" }}>underline</h2>
