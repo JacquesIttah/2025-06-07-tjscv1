@@ -18,10 +18,13 @@ const ressources = createSlice({
     builder.addCase(loadAsyncRessources.fulfilled, (state, action) => {
       state.images = action.payload;
     });
-    builder.addCase(loadAsyncRessourcesAll.fulfilled, (state, action) => {
-      state.images = action.payload.images;
-      state.memes = action.payload.memes;
-    });
+    builder.addCase(loadAsyncRessourcesMemes.fulfilled, (state, action) => {
+        state.memes = action.payload;
+      });
+    // builder.addCase(loadAsyncRessourcesAll.fulfilled, (state, action) => {
+    //   state.images = action.payload.images;
+    //   state.memes = action.payload.memes;
+    // });
     //possible d'ecouter des actoin pas pour ma tranche directement ciblé
     // ->  builder.addCase('current/update',(s,a)=>{})
   },
@@ -38,5 +41,13 @@ export const loadAsyncRessources = createAsyncThunk(
     return result;
   }
 );
-
+export const loadAsyncRessourcesMemes = createAsyncThunk(
+    "ressources/loadMemes",
+    async () => {
+      const primages = await fetch(`${REST_URL}/memes`);
+      const result = await primages.json();
+      return result;
+    }
+  );
+  
 export default ressources.reducer;
