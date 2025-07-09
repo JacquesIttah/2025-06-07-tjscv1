@@ -17,7 +17,7 @@ const current = createSlice({
     clear: (state) => {
       state.meme = emptyMeme;
     },
-  },
+  }
 });
 
 export const { update, clear } = current.actions;

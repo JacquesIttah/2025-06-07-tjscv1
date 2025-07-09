@@ -14,6 +14,13 @@ const ressources = createSlice({
   name: "ressources",
   initialState,
   reducers: {},
+  extraReducers(builder) {
+    builder.addCase(loadAsyncRessources.fulfilled, (state, action) => {
+      state.images = action.payload;
+    });
+    //possible d'ecouter des actoin pas pour ma tranche directement ciblé
+    // ->  builder.addCase('current/update',(s,a)=>{})
+  },
 });
 
 //export const {} = ressources.actions;

@@ -1,9 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import currentReducer from "./current";
+import ressourcesReducer from "./ressources";
 import { loadAsyncRessources } from "./ressources";
 
 export const store = configureStore({
-  reducer: combineReducers({ current: currentReducer }),
+  reducer: combineReducers({ current: currentReducer, ressources:ressourcesReducer }),
 });
 store.subscribe(()=>console.log(store.getState()))
 store.dispatch(loadAsyncRessources());
