@@ -7,10 +7,12 @@ import FlexHorizontFirstGrow from "./components/layout/FlexHorizontFirstGrow/Fle
 import MemeForm from "./components/MemeForm/MemeForm";
 import Footer from "./components/ui/Footer/Footer";
 import { emptyMeme, MemeSVGViewer, type ImageInterface } from "orsys-tjs-meme";
+import {store} from './store/store'
 // import {images} from '../db/db.json'
 const App = () => {
   const [meme, setMeme] = useState(emptyMeme);
   const [images, setImages] = useState<Array<ImageInterface>>([]);
+  console.log(store);
   useEffect(() => {
     fetch("http://localhost:5679/images",)
       .then(r=>r.json())
