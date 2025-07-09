@@ -16,11 +16,9 @@ const ressources = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder.addCase(loadAsyncRessources.fulfilled, (state, action) => {
-      state.images = action.payload;
+      state.images = action.payload.images;
+      state.memes = action.payload.memes;
     });
-    builder.addCase(loadAsyncRessourcesMemes.fulfilled, (state, action) => {
-        state.memes = action.payload;
-      });
     // builder.addCase(loadAsyncRessourcesAll.fulfilled, (state, action) => {
     //   state.images = action.payload.images;
     //   state.memes = action.payload.memes;
@@ -36,18 +34,12 @@ export const REST_URL = "http://localhost:5679";
 export const loadAsyncRessources = createAsyncThunk(
   "ressources/load",
   async () => {
-    const primages = await fetch(`${REST_URL}/images`);
-    const result = await primages.json();
-    return result;
+    const primages = fetch(`${REST_URL}/images`);
+    const prmemes = fetch(`${REST_URL}/memes`);
+    const prAll = await Promise.all([primages, prmemes]);
+    const images = await prAll[0].json();
+    const memes = await prAll[1].json();
+    return { images: images, memes: memes };
   }
 );
-export const loadAsyncRessourcesMemes = createAsyncThunk(
-    "ressources/loadMemes",
-    async () => {
-      const primages = await fetch(`${REST_URL}/memes`);
-      const result = await primages.json();
-      return result;
-    }
-  );
-  
 export default ressources.reducer;
