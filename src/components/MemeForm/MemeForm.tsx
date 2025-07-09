@@ -8,7 +8,7 @@ interface IMemeFormProps {
   onMemeChange(m: MemeInterface): undefined;
   onMemeSave(m: MemeInterface): undefined;
 }
-const MemeForm: React.FC<IMemeFormProps> = ({ meme, images, onMemeChange }) => {
+const MemeForm: React.FC<IMemeFormProps> = ({ meme, images, onMemeChange, onMemeSave }) => {
   function onStringInputChange(evt: React.FormEvent<HTMLInputElement>) {
     const tmp = { ...meme };
     //@ts-ignore
@@ -29,6 +29,7 @@ const MemeForm: React.FC<IMemeFormProps> = ({ meme, images, onMemeChange }) => {
         onSubmit={(evt) => {
           evt.preventDefault();
           //onMemeChange(internalMeme);
+          onMemeSave(meme)
         }}
       >
         <label htmlFor="titre">
